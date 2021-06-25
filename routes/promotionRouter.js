@@ -4,7 +4,7 @@ const promotionRouter = express.Router();
 
 promotionRouter.route('/')
     .all((req, res, next) => {
-        res.status = 200;
+        res.statusCode = 200;
         res.setHeader('Content-Type', 'text/plain');
         next();
     })
@@ -12,7 +12,7 @@ promotionRouter.route('/')
         res.end('Will send all promotions to you')
     })
     .post((req, res) => {
-        res.statusCode = 403;
+        // res.statusCode = 403;
         res.end(`Will add the promotion: ${req.body.name} with description: ${req.body.description}`);
     })
     .put((req, res) => {
@@ -25,7 +25,7 @@ promotionRouter.route('/')
 
 promotionRouter.route('/:promotionId')
     .all((req, res, next) => {
-        res.status = 200;
+        res.statusCode = 200;
         res.setHeader('Content-Type', 'text/plain');
         next();
     })
@@ -33,7 +33,7 @@ promotionRouter.route('/:promotionId')
         res.end(`Will send info for promotion ${req.params.promotionId} to you`)
     })
     .post((req, res) => {
-        res.statusCode = 403;
+        // res.statusCode = 403;
         res.end(`POST operation not supported on /promotions/${req.params.promotionId}`);
     })
     .put((req, res) => {

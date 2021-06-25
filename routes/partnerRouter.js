@@ -3,7 +3,7 @@ const partnerRouter = express.Router();
 
 partnerRouter.route('/')
     .all((req, res, next) => {
-        res.status = 200;
+        res.statusCode = 200;
         res.setHeader('Content-Type', 'text/plain');
         next();
     })
@@ -13,7 +13,7 @@ partnerRouter.route('/')
     })
 
     .post((req, res) => {
-        res.statusCode = 403;
+        // res.statusCode = 403;
         res.end(`Will add the partner: ${req.body.name} with description: ${req.body.description}`);
     })
 
@@ -29,7 +29,7 @@ partnerRouter.route('/')
 
 partnerRouter.route('/:partnerId')
     .all((req, res, next) => {
-        res.status = 200;
+        res.statusCode = 200;
         res.setHeader('Content-Type', 'text/plain');
         next();
     })
@@ -39,7 +39,7 @@ partnerRouter.route('/:partnerId')
     })
 
     .post((req, res) => {
-        res.statusCode = 403;
+        // res.statusCode = 403;
         res.end(`POST operation not supported on /partners/${req.params.partnerId}`);
     })
 
